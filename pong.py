@@ -60,6 +60,7 @@ opponent = pygame.Rect(10, screen_heigth/2-70, 10,140)
 
 bg_color = pygame.Color('grey12')
 ligth_grey=pygame.Color(200,200,200)
+red=pygame.Color(255,0,0)
 
 ball_speed_x=7*random.choice((1,-1))
 ball_speed_y=7*random.choice((1,-1))
@@ -92,10 +93,10 @@ while True:
     screen.fill(bg_color)
     pygame.draw.rect(screen, ligth_grey, player)
     pygame.draw.rect(screen, ligth_grey, opponent)
-    pygame.draw.ellipse(screen, ligth_grey, ball)
+    pygame.draw.rect(screen, red, ball)
     pygame.draw.aaline(screen, ligth_grey, (screen_width/2,0), (screen_width/2,screen_heigth))
     texto=fuente.render("[{}-{}]".format(opponent_score, player_score),0,(255,255,255))
-    screen.blit(texto,(screen_width/2,30))
+    screen.blit(texto,((screen_width/2)-30,15))
 
     pygame.display.flip()
     clock.tick(60)
